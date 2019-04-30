@@ -5,7 +5,7 @@
 - Due to time constraints the lightning component functionality is not complete and only allows editing of records.
 - All other functionality, including unit tests are completed.
 
-- There is an additional tab in the app named Payments Grid which contains a Gridbuddy (AppBuddy app) grid, which has all the functionality outlined in the requirements,
+- There is an additional tab in the app named Payments Grid which contains a Gridbuddy (created by AppBuddy) grid, which has all the functionality outlined in the requirements,
   this was added in case the customer wasn't aware that this product exists on the AppExchange.
 
 ### Assumptions/Additional Information
