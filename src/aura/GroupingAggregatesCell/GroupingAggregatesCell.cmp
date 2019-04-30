@@ -1,0 +1,27 @@
+<aura:component >
+    <aura:attribute name="groupingKey" type="String" description="key so we know which data to access from factMap"/>
+	<aura:attribute name="groupingLabel" type="String" description="label for grouping"/>
+	<aura:attribute name="groupingValue" type="String" description="value for grouping"/>
+    <aura:attribute name="factMap" type="Object" description="all data keyed to groupings so we can pull the correct data"/>
+    <aura:attribute name="aggRows" type="Object[]" description="rows of aggregates from report"/>
+	<aura:attribute name="level" type="Integer" description="holds level of grouping so we know which grouping to access"/>
+	<aura:attribute name="fieldLabel" type="String" description="label for grouping for display"/>
+	<aura:attribute name="assetAsOfDate" type="String" description="asset as of date"/>
+
+    <aura:handler name="init" value="{!this}" action="c.doInitialize"/>
+	<aura:handler name="change" action="c.doInitialize" value="{!v.factMap}"/>
+
+	<td>
+		<aura:if isTrue="{! (v.groupingValue != v.groupingLabel) &amp;&amp; (v.groupingValue.length == 15 || v.groupingValue.length == 18)}">
+			<a href="{!'/'+v.groupingValue}" target="_blank" class="groupingLabel">{!v.groupingLabel}</a>
+			<aura:set attribute="else">
+					{!v.groupingLabel}
+			</aura:set>
+		</aura:if>
+	</td>
+	<aura:iteration items="{!v.aggRows}" var="aggRow" indexVar="i">
+		<td class="{!'level-col-'+v.level}">
+			<div style="text-align:right;">{!aggRow.label}</div>
+		</td>
+	</aura:iteration>
+</aura:component>
